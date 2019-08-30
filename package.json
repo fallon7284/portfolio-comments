@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-comments",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "lodash": "^4.17.15",
+    "morgan": "~1.9.1",
+    "nodemon": "^1.19.1",
+    "pg": "^7.11.0",
+    "sequelize": "^5.10.1"
+  },
+  "engines": {
+    "node": "11.14.0"
+  }
+}
