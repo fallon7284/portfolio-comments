@@ -16,7 +16,12 @@ const Comments = db.define('comments', {
     message: {
         type: Sequelize.TEXT,
         allowNull: false
-    }
+    },
+    isReplyTo: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
+
 })
 
 module.exports = Comments
