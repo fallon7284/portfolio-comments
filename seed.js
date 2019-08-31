@@ -6,8 +6,8 @@ const { green, red } = require('chalk')
 
 
 const seedComments = [
-    {userName: 'Brendan', userEmail: 'fallon7284@gmail.com', message: 'first!', isReplyTo: null},
-    {userName: 'Brendan', userEmail: 'brendanc.fallon@gmail.com', message: 'I really hope this guy gets a great job soon!', isReplyTo: null},
+    {userName: 'Brendan', userEmail: 'fallon7284@gmail.com', message: 'first!', isReplyTo: null, replies: []},
+    {userName: 'Brendan', userEmail: 'brendanc.fallon@gmail.com', message: 'I really hope this guy gets a great job soon!', isReplyTo: null, replies: []},
     ]
 
 
