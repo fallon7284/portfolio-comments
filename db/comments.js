@@ -21,7 +21,9 @@ const Comments = db.define('comments', {
         type: Sequelize.INTEGER,
         allowNull: true
     },
-
+    replies: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
+    }
 })
 
 module.exports = Comments

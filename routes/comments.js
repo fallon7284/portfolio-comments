@@ -3,21 +3,22 @@ const Comments = require('../db/comments')
 
 router.get('/', async (req, res, next) => {
     try{
-        const comments = await Comments.findAll()
-        const replyComments = comments.filter(c => c.isReplyTo !== null).map(c => c.dataValues)
-        const notReplyComments = comments.filter(c => c.isReplyTo === null).map(c => c.dataValues)
-        const replies = {}
-        replyComments.forEach(c => {
-            if (!replies[c.isReplyTo]){
-                replies[c.isReplyTo] = [c]
+        let comments = await Comments.findAll()
+        comments = comments.map(c => c.dataValues)
+        const replies = comments.filter(c => c.isReplyTo !== null)
+        const rootComments = comments.filter(c => c.isReplyTo === null)
+        const cache = {}
+        replies.forEach(c => {
+            if (!cache[c.isReplyTo]){
+                cache[c.isReplyTo] = [c]
             }
             else {
-                replies[c.isReplyTo].push(c)
+                cache[c.isReplyTo].push(c)
             }
         })
-        const response = notReplyComments.map(c => {
-            if (replies[c.id]){
-                c.replies = replies[c.id]
+        const response = rootComments.map(c => {
+            if (cache[c.id]){
+                c.replies = cache[c.id]
             }
             return c
         })
