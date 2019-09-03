@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const Comments = require('../db/comments')
 
+console.log(process.env)
+
 router.get('/', async (req, res, next) => {
     try{
         let comments = await Comments.findAll()

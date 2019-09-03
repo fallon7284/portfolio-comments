@@ -7,7 +7,7 @@ const cors = require('cors')
 router.use(cors())
 /* GET home page. */
 
-router.use('/', require('./comments'))
+router.use('/comments', require('./comments'))
 // router.use('/comments', comments);
 
 
