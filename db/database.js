@@ -11,12 +11,6 @@ console.log(chalk.yellow(`Opening database connection to ${dbName}`))
 //   operatorsAliases: false,
 // })
 
-const db = new Sequelize(process.env.DATABASE_URL || `postgres://localhost:5432/${dbName}`, {
-  dialect: 'postgres',
-  protocol: 'postgres',
-  dialectOptions: {
-      ssl: true
-  }
-});
+const db = new Sequelize(process.env.DATABASE_URL || `postgres://localhost:5432/${dbName}`);
 
 module.exports = db

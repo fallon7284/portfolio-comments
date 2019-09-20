@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const Comments = require('../db/comments')
 
-console.log(process.env)
 
 router.get('/', async (req, res, next) => {
     try{
@@ -23,6 +22,8 @@ router.get('/', async (req, res, next) => {
                 c.replies = cache[c.id]
             }
             return c
+        }).sort((a, b) => {
+            return b.id - a.id;
         })
         console.log(response)
         res.send(response)
